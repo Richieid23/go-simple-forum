@@ -1,0 +1,5 @@
+service:
+  port: ":9092"
+
+database:
+  dataSourceName: "root:@tcp(localhost:3306)/db_simple_forum"
