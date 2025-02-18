@@ -8,6 +8,7 @@ import (
 	"log"
 
 	membershipRepository "github.com/Richieid23/simple-forum/internal/repositories/memberships"
+	membershipService "github.com/Richieid23/simple-forum/internal/services/memberships"
 )
 
 func main() {
@@ -34,9 +35,10 @@ func main() {
 		log.Fatal("Gagal inisiasi database", err)
 	}
 
-	_ = membershipRepository.NewRepository(db)
+	membershipRepos := membershipRepository.NewRepository(db)
+	membershipSvc := membershipService.NewService(membershipRepos)
 
-	membershipHandler := memberships.NewHandler(r)
+	membershipHandler := memberships.NewHandler(r, membershipSvc)
 	membershipHandler.RegisterRoute()
 
 	r.Run(cfg.Service.Port)
