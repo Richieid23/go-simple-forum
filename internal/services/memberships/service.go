@@ -2,6 +2,7 @@ package memberships
 
 import (
 	"context"
+	"github.com/Richieid23/simple-forum/internal/configs"
 	"github.com/Richieid23/simple-forum/internal/models/memberships"
 )
 
@@ -12,8 +13,9 @@ type membershipRepository interface {
 
 type service struct {
 	membershipRepos membershipRepository
+	config          *configs.Config
 }
 
-func NewService(membershipRepos membershipRepository) *service {
-	return &service{membershipRepos: membershipRepos}
+func NewService(membershipRepos membershipRepository, configs *configs.Config) *service {
+	return &service{membershipRepos: membershipRepos, config: configs}
 }

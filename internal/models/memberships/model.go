@@ -8,6 +8,17 @@ type (
 		Username string `json:"username"`
 		Password string `json:"password"`
 	}
+
+	SignInRequest struct {
+		Email    string `json:"email"`
+		Password string `json:"password"`
+	}
+)
+
+type (
+	SignInResponse struct {
+		AccessToken string `json:"accessToken"`
+	}
 )
 
 type (

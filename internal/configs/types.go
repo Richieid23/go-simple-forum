@@ -4,6 +4,7 @@ type (
 	Config struct {
 		Service  Service  `mapstructure:"service"`
 		Database Database `mapstructure:"database"`
+		Jwt      Jwt      `mapstructure:"jwt"`
 	}
 
 	Service struct {
@@ -12,5 +13,9 @@ type (
 
 	Database struct {
 		DataSourceName string `mapstructure:"dataSourceName"`
+	}
+
+	Jwt struct {
+		SecretKey string `mapstructure:"secretKey"`
 	}
 )

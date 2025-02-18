@@ -3,3 +3,6 @@ service:
 
 database:
   dataSourceName: "root:@tcp(localhost:3306)/db_simple_forum?parseTime=true"
+
+jwt:
+  secretKey: "simpleforumsecretkey"
